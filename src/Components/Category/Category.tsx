@@ -23,7 +23,7 @@ export default function HomeCategory() {
 
   return (
     <section
-      className="my-6 px-3"
+      className="my-6 px-3 overflow-x-hidden"
       aria-labelledby="top-categories-heading"
     >
       <hr className="opacity-25 mb-4" />
