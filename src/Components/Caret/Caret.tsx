@@ -40,8 +40,8 @@ const navigate = useNavigate()
 
 
   useEffect(() => {
-    if(!userInfo) return
-      dispatch(getCartData());
+    if(userInfo)dispatch(getCartData())
+      
     
   }, []);
 
@@ -296,6 +296,7 @@ async function handleSubmitData(e: FormEvent) {
           
           fields: {
             phone: "always",
+          
           },
         }}
       />

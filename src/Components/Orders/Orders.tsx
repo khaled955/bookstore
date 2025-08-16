@@ -50,7 +50,7 @@ if (axios.isAxiosError(error)) {
 
 
 useEffect(()=>{
-  getUserOrders()
+if(userInfo)getUserOrders()
 
 },[])
 

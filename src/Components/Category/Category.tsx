@@ -57,7 +57,7 @@ export default function HomeCategory() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        {/* <CategorySlider /> */}
+        <CategorySlider />
       </motion.div>
     </section>
   );

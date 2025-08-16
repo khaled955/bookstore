@@ -22,7 +22,7 @@ export default function Navbar() {
   const { whislistBooks } = useSelector((store: RootState) => store.whishListReducer);
 
   useEffect(() => {
-    dispatch(getCartData());
+    if(token) dispatch(getCartData());
   }, []);
 
   const navItemClass = ({ isActive }: { isActive: boolean }) =>
