@@ -7,31 +7,111 @@ import { useQuery } from "@tanstack/react-query";
 
 type Category = { _id: string; name: string };
 
-// map names → icons (case/spacing-insensitive)
-const ICONS: Record<string, JSX.Element> = {
-  "fiction": <i className="fa-solid fa-book-open"></i>,
-  "science fiction": <i className="fa-solid fa-robot"></i>,
-  "fantasy": <i className="fa-solid fa-hat-wizard"></i>,
-  "mystery & thriller": <i className="fa-solid fa-user-secret"></i>,
-  "romance": <i className="fa-solid fa-heart"></i>,
-  "horror": <i className="fa-solid fa-ghost"></i>,
-  "historical fiction": <i className="fa-solid fa-landmark"></i>,
-  "biography & memoir": <i className="fa-solid fa-user"></i>,
-  "self-help & motivation": <i className="fa-solid fa-hand-holding-heart"></i>,
-  "business & finance": <i className="fa-solid fa-chart-line"></i>,
-  "technology & ai": <i className="fa-solid fa-microchip"></i>,
-  "science & nature": <i className="fa-solid fa-flask"></i>,
-  "philosophy & psychology": <i className="fa-solid fa-brain"></i>,
-  "health & fitness": <i className="fa-solid fa-heart-pulse"></i>,
-  "cookbooks & food": <i className="fa-solid fa-utensils"></i>,
-  "travel & adventure": <i className="fa-solid fa-globe"></i>,
-  "poetry": <i className="fa-solid fa-feather-pointed"></i>,
-  "education & learning": <i className="fa-solid fa-graduation-cap"></i>,
-  "children's books": <i className="fa-solid fa-child"></i>,
-};
 
-const normalize = (s: string) =>
-  s.toLowerCase().replace(/&/g, "&").replace(/\s+/g, " ").trim();
+
+
+const categoryList:{icon:JSX.Element,name:string}[] = [
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-graduation-cap"></i>,name:"education & learning"},
+  {icon:<i className="fa-solid fa-feather-pointed"></i>,name:"poetry"},
+  {icon:<i className="fa-solid fa-globe"></i>,name:"travel & adventure"},
+  {icon:<i className="fa-solid fa-utensils"></i>,name:"cookbooks & food"},
+  {icon:<i className="fa-solid fa-heart-pulse"></i>,name: "health & fitness"},
+  {icon:<i className="fa-solid fa-brain"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {name:"fiction",icon: <i className="fa-solid fa-book-open"></i>},
+  {name:"science fiction",icon: <i className="fa-solid fa-robot"></i>},
+{  name:"fantasy",icon: <i className="fa-solid fa-hat-wizard"></i>},
+ { name:"mystery & thriller",icon: <i className="fa-solid fa-user-secret"></i>},
+ { name:"romance",icon: <i className="fa-solid fa-heart"></i>},
+  {name:"horror",icon :<i className="fa-solid fa-ghost"></i>},
+  {name:"historical fiction",icon: <i className="fa-solid fa-landmark"></i>},
+ { name:"biography & memoir",icon: <i className="fa-solid fa-user"></i>},
+{ name: "self-help & motivation",icon: <i className="fa-solid fa-hand-holding-heart"></i>},
+  {name:"business & finance",icon: <i className="fa-solid fa-chart-line"></i>},
+ {name: "technology & ai",icon: <i className="fa-solid fa-microchip"></i>},
+  {name:"science & nature",icon: <i className="fa-solid fa-flask"></i>},
+ {name: "philosophy & psychology",icon: <i className="fa-solid fa-brain"></i>},
+  {name:"health & fitness",icon: <i className="fa-solid fa-heart-pulse"></i>},
+  {name:"cookbooks & food",icon: <i className="fa-solid fa-utensils"></i>},
+  {name:"travel & adventure",icon: <i className="fa-solid fa-globe"></i>},
+  {name:"poetry",icon: <i className="fa-solid fa-feather-pointed"></i>},
+  {name:"education & learning",icon: <i className="fa-solid fa-graduation-cap"></i>},
+  {name:"children's books",icon: <i className="fa-solid fa-child"></i>},
+
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-graduation-cap"></i>,name:"education & learning"},
+  {icon:<i className="fa-solid fa-feather-pointed"></i>,name:"poetry"},
+  {icon:<i className="fa-solid fa-globe"></i>,name:"travel & adventure"},
+  {icon:<i className="fa-solid fa-utensils"></i>,name:"cookbooks & food"},
+  {icon:<i className="fa-solid fa-heart-pulse"></i>,name: "health & fitness"},
+  {icon:<i className="fa-solid fa-brain"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {name:"fiction",icon: <i className="fa-solid fa-book-open"></i>},
+  {name:"science fiction",icon: <i className="fa-solid fa-robot"></i>},
+{  name:"fantasy",icon: <i className="fa-solid fa-hat-wizard"></i>},
+ { name:"mystery & thriller",icon: <i className="fa-solid fa-user-secret"></i>},
+ { name:"romance",icon: <i className="fa-solid fa-heart"></i>},
+  {name:"horror",icon :<i className="fa-solid fa-ghost"></i>},
+  {name:"historical fiction",icon: <i className="fa-solid fa-landmark"></i>},
+ { name:"biography & memoir",icon: <i className="fa-solid fa-user"></i>},
+{ name: "self-help & motivation",icon: <i className="fa-solid fa-hand-holding-heart"></i>},
+  {name:"business & finance",icon: <i className="fa-solid fa-chart-line"></i>},
+ {name: "technology & ai",icon: <i className="fa-solid fa-microchip"></i>},
+  {name:"science & nature",icon: <i className="fa-solid fa-flask"></i>},
+ {name: "philosophy & psychology",icon: <i className="fa-solid fa-brain"></i>},
+  {name:"health & fitness",icon: <i className="fa-solid fa-heart-pulse"></i>},
+  {name:"cookbooks & food",icon: <i className="fa-solid fa-utensils"></i>},
+  {name:"travel & adventure",icon: <i className="fa-solid fa-globe"></i>},
+  {name:"poetry",icon: <i className="fa-solid fa-feather-pointed"></i>},
+  {name:"education & learning",icon: <i className="fa-solid fa-graduation-cap"></i>},
+  {name:"children's books",icon: <i className="fa-solid fa-child"></i>},
+
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-graduation-cap"></i>,name:"education & learning"},
+  {icon:<i className="fa-solid fa-feather-pointed"></i>,name:"poetry"},
+  {icon:<i className="fa-solid fa-globe"></i>,name:"travel & adventure"},
+  {icon:<i className="fa-solid fa-utensils"></i>,name:"cookbooks & food"},
+  {icon:<i className="fa-solid fa-heart-pulse"></i>,name: "health & fitness"},
+  {icon:<i className="fa-solid fa-brain"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {icon:<i className="fa-solid fa-child"></i>,name:"children's books"},
+  {name:"fiction",icon: <i className="fa-solid fa-book-open"></i>},
+  {name:"science fiction",icon: <i className="fa-solid fa-robot"></i>},
+{  name:"fantasy",icon: <i className="fa-solid fa-hat-wizard"></i>},
+ { name:"mystery & thriller",icon: <i className="fa-solid fa-user-secret"></i>},
+ { name:"romance",icon: <i className="fa-solid fa-heart"></i>},
+  {name:"horror",icon :<i className="fa-solid fa-ghost"></i>},
+  {name:"historical fiction",icon: <i className="fa-solid fa-landmark"></i>},
+ { name:"biography & memoir",icon: <i className="fa-solid fa-user"></i>},
+{ name: "self-help & motivation",icon: <i className="fa-solid fa-hand-holding-heart"></i>},
+  {name:"business & finance",icon: <i className="fa-solid fa-chart-line"></i>},
+ {name: "technology & ai",icon: <i className="fa-solid fa-microchip"></i>},
+  {name:"science & nature",icon: <i className="fa-solid fa-flask"></i>},
+ {name: "philosophy & psychology",icon: <i className="fa-solid fa-brain"></i>},
+  {name:"health & fitness",icon: <i className="fa-solid fa-heart-pulse"></i>},
+  {name:"cookbooks & food",icon: <i className="fa-solid fa-utensils"></i>},
+  {name:"travel & adventure",icon: <i className="fa-solid fa-globe"></i>},
+  {name:"poetry",icon: <i className="fa-solid fa-feather-pointed"></i>},
+  {name:"education & learning",icon: <i className="fa-solid fa-graduation-cap"></i>},
+  {name:"children's books",icon: <i className="fa-solid fa-child"></i>},
+
+
+
+
+
+
+]
+
+
+
+
+
 
 export default function CategorySlider() {
 
@@ -66,16 +146,14 @@ export default function CategorySlider() {
         1024: { slidesPerView: 5 },
       }}
     >
-      {categories.map((category) => {
-        const key = normalize(category.name || "");
-        const icon = ICONS[key] ?? <i className="fa-solid fa-book"></i>; // safe fallback
+      {categories.map((category,index) => {
 
         return (
           <SwiperSlide key={category._id}>
             <div className="mt-4">
               <div className="flex flex-col gap-5 items-center shadow-md rounded-xl p-4 bg-white">
-                <span className="text-2xl">{icon}</span>
-                <p className="text-sm text-gray-700 line-clamp-1">{category.name}</p>
+                <span className="text-2xl">{categoryList[index].icon}</span>
+                <p className="text-sm text-gray-700 line-clamp-1">{categoryList[index].name}</p>
               </div>
             </div>
           </SwiperSlide>
