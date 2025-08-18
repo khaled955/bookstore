@@ -59,6 +59,20 @@ export default function Allbooks() {
      Mocked for decades, the man who designed the satellite is now dead. With the system's original data firmly in the hands of former NTSB investigator Joe Rickards and anthropologist Angela Reed.
      But the data is only to be shared with one other person besides them: a seventy-five-year-old NASA engineer who was part of the original program.
     ` , photo :thedesertofglass},
+
+
+     {nameofbook:"REUNION PRAGUE" ,details:`Everyman spy Alex Kovacs returns to action in Reunion in Prague, the 13th book in a series that has earned more than 15,000 5-star reviews. This time, he visits his home country, the place where he was born, the place that he turned his back on at age 16 for a new life with his uncle in Vienna.
+    Prague, several years after the war, has been consumed by its Communist oppressors. Private enterprise is being eliminated. The secret police have begun to follow in the footsteps of their masters, the KGB. Show trials of “enemies of the state” have become a macabre form of popular entertainment. And Alex’s employers at the Gehlen Organization are anxious for inside information from behind this particularly
+    
+    ` , photo :reunion},
+     {nameofbook:"THE LAST MONUMENT" ,details:`Outside Denver, Colorado, Joe Rickards stands over a small aircraft wreckage, studying burnt remains still smoldering in a field of freshly fallen snow...an investigator for the NTSB, working to carefully roll back the last several hours and identify the cause of the accident.
+     But this time, he can't.
+     The details behind this tragedy don't add up. Unlike every other investigation of Joe's career, the facts make no sense. Each new piece of information only makes the accident more mysterious, and more baffling.
+    
+    ` , photo :thelatestmomement},
+    {nameofbook:"THE NEXT CONVERSATION" ,details:`No matter who you’re talking to, The Next Conversation gives you immediately actionable strategies and phrases that will forever change how you communicate. Jefferson Fisher, trial lawyer and one of the leading voices on real-world communication, offers a tried-and-true framework that will show you how to transform your life and your relationships by improving your next conversation.
+    Fisher has gained millions of followers through short, simple, practical videos teaching people how to argue less and talk more. Whether it’s handling a heated conversation, dealing with a difficult personality, or standing your ground with confidence, his down-to-earth teachings have helped countless people navigate life’s toughest situations. Now for the first time, Fisher has distilled his three-part
+    ` , photo :thenextconversation},
     
     ]
 
